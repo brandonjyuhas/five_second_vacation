@@ -1,7 +1,7 @@
 <style>
 	img {
-		height: 14px;
-		width: 14px;
+		height: 25px;
+		width: 25px;
 		border: solid 2px white;
 		border-radius: 5px;	
 	}
@@ -13,7 +13,7 @@
 <ul>
 <% @trips.each do |trip| %>
 <% if trip.stops.count > 0 %>
-<li><p><%= link_to trip.created_at.to_date, trip %> | By: <%= trip.user.email %> <%= image_tag(trip.user.gravatar_for, height: 6) %></p></li>
+<li><p><%= link_to trip.created_at.to_date, trip %> | By: <%= trip.user.email %> <%= image_tag(trip.user.gravatar_for) %></p></li>
 <% end %>
 <% end %>
 </ul>
