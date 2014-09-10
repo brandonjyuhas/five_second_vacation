@@ -13,9 +13,6 @@
  *= require_tree .
  *= require_self
  */
-	body {
-		height: ;
-	}
 	p {
 		color: white;
 	}
