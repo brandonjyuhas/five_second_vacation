@@ -2,13 +2,37 @@
 <html>
 <head>
   <title>Vacation</title>
+  <link rel="shortcut icon" href="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/paperplane-16.png" >
+  <LINK href="../../../assets/stylesheets/normalize.css" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="page-wrap">
+	<header>
+		<div class="navbar">
+			<div class="left">
+				<%= link_to " Go Home", static_pages_path %> | <%= link_to "View Trips", trips_path %>
+			</div>
+			<div class="right">
+				<% unless user_signed_in? %>
+					<%= link_to "Sign Up |", new_user_registration_path %>
+					<%= link_to "Sign In", new_user_session_path %>
+				<% else %>
+					<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+				<% end %>
+			</div>
+		</div>
+	</header>
 
 <%= yield %>
+
+	</div>
+
+	<footer class="site-footer">
+		<p>&copy;Vandelay Industries - All Rights Reserved</p>
+	</footer>
 
 </body>
 </html>

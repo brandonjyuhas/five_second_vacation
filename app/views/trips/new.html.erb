@@ -1,0 +1,40 @@
+<style>
+	.stop#airport {
+		background-image: url('<%= (@stop.location[1]) %>');
+	}
+	.stop#rest {
+		background-image: url('<%= (@stop.location[3]) %>');
+	}
+	.stop#hotel{
+		background-image: url('<%= (@stop.location[5]) %>');
+	}
+	h2 {
+		text-align: center;
+	}
+</style>
+
+<h2><%= @stop.location[6] %></h2>
+
+
+<div class="head"/>
+	<div class="stop" id="airport">
+		<div class="text"><%= @stop.location[0] %></div>
+	</div>
+	<div class="stop" id="rest">
+		<div class="text"><%= @stop.location[2] %></div>
+	</div>
+	<div class="stop" id="hotel">
+		<div class="text"><%= @stop.location[4] %></div>
+	</div>
+</div>
+
+<div class="post" />
+<%= form_for @trip do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+
+	<%= f.submit %>
+<% end %>

@@ -1,0 +1,56 @@
+<style>
+	.stop#airport {
+		background-image: url('<%= (@trip.location[1]) %>');
+	}
+	.stop#rest {
+		background-image: url('<%= (@trip.location[3]) %>');
+	}
+	.stop#hotel{
+		background-image: url('<%= (@trip.location[5]) %>');
+	}
+	h2 {
+		text-align: center;
+	}
+
+	.post {
+		text-align: center;
+		margin: 0 auto;
+	}
+</style>
+
+<h2><%= @trip.location[6] %></h2>
+<div class="head"/>
+	<div class="stop" id="airport">
+		<div class="text"><%= @trip.location[0] %></div>
+	</div>
+	<div class="stop" id="rest">
+		<div class="text"><%= @trip.location[2] %></div>
+	</div>
+	<div class="stop" id="hotel">
+		<div class="text"><%= @trip.location[4] %></div>
+	</div>
+</div>
+
+<div class="post" />
+	<%= form_for [@trip, @stop] do |f| %>
+	<%= f.label :title %>
+	<br>
+	<%= f.text_field :title %>
+	<br>
+	<%= f.label :body %>
+	<br>
+	<%= f.text_area :body, :size => "70%x5%" %>
+
+	<%= f.hidden_field :location, :value => @trip.location[6] %>
+	<%= f.hidden_field :airport, :value => @trip.location[0] %>
+	<%= f.hidden_field :rest, :value => @trip.location[2] %>
+	<%= f.hidden_field :rest_pic, :value => @trip.location[3] %>
+	<%= f.hidden_field :hotel, :value => @trip.location[4] %>
+	<%= f.hidden_field :hotel_pic, :value => @trip.location[5] %>
+	<%= f.hidden_field :trip_id, :value => @trip.id %>
+	<%= f.hidden_field :airport_pic, :value => @trip.location[1] %>
+
+
+	<div class="buttons"><%= f.submit "Add Another" %> <%= f.submit "Finish Trip" %></div>
+<% end %>
+</div>
