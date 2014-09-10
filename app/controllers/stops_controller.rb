@@ -21,10 +21,6 @@ class StopsController < ApplicationController
 	def create
 		@stop = Stop.new(stop_params)
 		@trip = Trip.find_by(id: @stop.trip_id)
-
-		puts "\n\n\n"
-		puts stop_params.inspect
-		puts "\n\n\n"
 		if @stop.save
 			if params[:commit] == "Add Another"
 				redirect_to new_trip_stop_path

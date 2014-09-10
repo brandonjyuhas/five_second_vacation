@@ -11,7 +11,7 @@
 
 <h2>Trips</h2>
 
-<%= @stops.each do |stop| %>
+<% @stops.each do |stop| %>
 
 <h2><%= stop.location %></h2>
 
@@ -28,9 +28,7 @@
 	</div>
 </div>
 
-<h2><%= stop.title.upcase %> |  <%= stop.created_at.to_date %></h2>
+<h2><%= stop.title.upcase %> | <%= stop.created_at.to_date %></h2>
 <div class="body"><p><%= stop.body %></p></div>
 
-<br>
-<br>
 <% end %>
