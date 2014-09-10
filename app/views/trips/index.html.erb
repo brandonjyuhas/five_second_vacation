@@ -13,7 +13,9 @@
 <ul>
 <% @trips.each do |trip| %>
 <% if trip.stops.count > 0 %>
-<li><p><%= link_to trip.created_at.to_date, trip %> | By: <%= trip.user.email %> <%= image_tag(trip.user.gravatar_for) %></p></li>
+<% link = "#{trip.created_at.to_date} | By: #{trip.user.email}" %>
+<li><p><%= link_to link, trip %> <%= image_tag(trip.user.gravatar_for) %>
+</p></li>
 <% end %>
 <% end %>
 </ul>
