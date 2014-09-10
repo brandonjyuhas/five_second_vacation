@@ -8,7 +8,21 @@ class StopsController < ApplicationController
 	def show
 		@trip = Trip.find(params[:trip_id])
 		@stop = Stop.find(params[:stop_id])
+	end
 
+	def edit
+		@trip = Trip.find(params[:trip_id])
+		@stop = Stop.find(params[:id])
+	end
+
+	def update
+		@trip = Trip.find(params[:trip_id])
+		@stop = Stop.find(params[:id])
+		if @stop.update(stop_params)
+			redirect_to trip_path(@trip)
+		else
+			render :new
+		end
 	end
 
 	def new
@@ -31,6 +45,14 @@ class StopsController < ApplicationController
 			render :new
 		end
 	end
+
+	def destroy
+		@trip = Trip.find(params[:trip_id])
+		@stop = Stop.find(params[:id])
+		@stop.destroy
+		redirect_to trips_path
+	end
+
 
 	private
 		def stop_params

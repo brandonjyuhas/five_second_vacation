@@ -30,5 +30,8 @@
 
 <h2><%= stop.title.upcase %> | <%= stop.created_at.to_date %></h2>
 <div class="body"><p><%= stop.body %></p></div>
+<% if stop.trip.user == current_user %>
+<%= link_to 'Edit', edit_trip_stop_path(stop.trip.id, stop) %> <%= link_to 'Delete', [@trip,stop], method: :delete %>
+<% end %>
 
 <% end %>

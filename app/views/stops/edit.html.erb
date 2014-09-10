@@ -1,0 +1,40 @@
+<style>
+	html {
+		text-align: center
+	}
+	.body {
+		width: 70%;
+		background-color: #5370B3;
+		margin: 0 auto;
+	}
+</style>
+
+<h2><%= @stop.location %></h2>
+
+
+<div class="head"/>
+	<div class="stop" id="airport" style= "background-image: url('<%= (@stop.airport_pic) %>');">
+		<div class="text"><%= @stop.airport %></div>
+	</div>
+	<div class="stop" id="rest" style= "background-image: url('<%= (@stop.rest_pic) %>');">
+		<div class="text"><%= @stop.rest %></div>
+	</div>
+	<div class="stop" id="hotel" style= "background-image: url('<%= (@stop.hotel_pic) %>');">
+		<div class="text"><%= @stop.hotel %></div>
+	</div>
+</div>
+<% if current_user == @trip.user %>
+	<div class="post" />
+		<%= form_for [@trip, @stop] do |f| %>
+		<%= f.label :title %>
+		<br>
+		<%= f.text_field :title %>
+		<br>
+		<%= f.label :body %>
+		<br>
+		<%= f.text_area :body, :size => "70%x5%" %>
+
+		<div class="buttons"><%= f.submit "Finish Editing" %></div>
+	<% end %>
+<% end %>
+</div>
