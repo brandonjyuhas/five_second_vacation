@@ -1,5 +1,19 @@
 == README
 
+This application is designed to allow people to find a random location within the United States and go on a 'vacation' consisting of an airport, restaraunt and lodging.
+
+The live site can be found here: http://fast-harbor-4752.herokuapp.com/
+
+The application relies on the Google Places API and the Google Geocoder API. Keys can be provided by Google. 
+
+Work needed: refractoring, possible restructuring of database to avoid the difference between the new stop instances and a saved stop instances.
+
+Rails Version: 4.1
+
+ERD: http://i.imgur.com/l8FP96Q.jpg
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
